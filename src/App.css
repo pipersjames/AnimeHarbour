@@ -43,14 +43,16 @@
   padding: 20px; 
   border: 1px solid #ddd; 
   border-radius: 20px; 
+  flex-wrap: wrap;
 }
 
 .ApiSearchListHeading{
   font-size: 2 rem;
+  flex-wrap: wrap;
   margin: 15px;
 }
 
-.ApiSearchListButton:in-range{
+.ApiSearchListButton:hover{
   background-color: #0056b3;
 }
 
