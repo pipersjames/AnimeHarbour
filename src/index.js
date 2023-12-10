@@ -4,12 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ApiProvider } from "./contexts/ApiProvider";
+import { AnimeDataProvider } from "./contexts/AnimeDataProvider";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <ApiProvider>
-      <App />
+      <AnimeDataProvider>
+        <App />
+      </AnimeDataProvider>
     </ApiProvider>
   </React.StrictMode>
 );
