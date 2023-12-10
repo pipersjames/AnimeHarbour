@@ -26,8 +26,8 @@ export function ApiSearchList() {
   };
 
   return (
-    <div>
-      <h5>Enter an Anime name:</h5>
+    <div className="ApiSearchListContainer">
+      <h5 className="ApiSearchListHeading">Enter an Anime name:</h5>
       <input
         type="text"
         name="animeName"
@@ -35,7 +35,7 @@ export function ApiSearchList() {
         value={searchData}
         onChange={(event) => setSearchData(event.target.value)}
       />
-      <button onClick={searchForAnime} type="submit">Search</button>
+      <button className="ApiSearchListButton" onClick={searchForAnime} type="submit">Search</button>
     </div>
   );
 }

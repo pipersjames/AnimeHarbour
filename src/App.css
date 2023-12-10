@@ -36,3 +36,21 @@
     transform: rotate(360deg);
   }
 }
+
+/* Api Search List */
+.ApiSearchListContainer {
+  margin: 20px; 
+  padding: 20px; 
+  border: 1px solid #ddd; 
+  border-radius: 20px; 
+}
+
+.ApiSearchListHeading{
+  font-size: 2 rem;
+  margin: 15px;
+}
+
+.ApiSearchListButton:in-range{
+  background-color: #0056b3;
+}
+
