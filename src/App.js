@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router";
+import { Outlet, Route, Routes } from "react-router";
 import "./App.css";
 import LandingPage from "./components/LandingPage";
 import Navbar from "./components/Navbar";
