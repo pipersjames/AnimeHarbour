@@ -8,18 +8,19 @@ import { ApiContext } from "../contexts/ApiProvider";
 
 export function ApiSearchList() {
   const { url } = useContext(ApiContext);
-  const { animeList, setAnimeList } = useState([]); // Use local state
+  const [ animeList, setAnimeList ] = useState([]); // Use local state
   const [searchData, setSearchData] = useState("");
 
   const searchForAnime = async () => {
     try {
-      const response = await fetch(url + "anime/" + searchData); // Update the API endpoint for anime
+      const response = await fetch (url + "anime?q=" + searchData); // Update the API endpoint for anime
+      console.log(animeList)
       if (!response.ok) {
-        throw new Error("Network response was not ok");
+        throw new Error("Network response was not ok" );
       }
       
       const data = await response.json();
-      setAnimeList([...animeList, { id: new Date(Date.now()).getTime(), anime: data }]); // Update the context state
+      setAnimeList({ id: new Date(Date.now()).getTime(), anime: data }); // Update the context state
     } catch (error) {
       console.error("Error fetching anime:", error);
     }
