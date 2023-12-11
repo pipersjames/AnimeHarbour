@@ -3,6 +3,7 @@ import "./App.css";
 import LandingPage from "./components/LandingPage";
 import Navbar from "./components/Navbar";
 import Favourites from "./components/Favourites";
+import {ApiSearchList} from './components/ApiSearchList';
 // import ApiSearchList from "./components/ApiSearchList"
 
 function App() {
@@ -12,10 +13,9 @@ function App() {
         <Routes>
           <Route path="/" element={<LandingPage/>}/>
           <Route path="/favourites" element={<Favourites/>}/>
-          {/* <Route path="/search" element={<Outlet/>}>
+          <Route path="/search" element={<Outlet/>}>
             <Route index element={<ApiSearchList/>}/>
-            <Route path="search/param" element={Apisearchbox + cards of search}/>
-          </Route> */}
+          </Route>
             
 
 
