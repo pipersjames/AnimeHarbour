@@ -2,7 +2,13 @@
 
 ### Description
 
-Anime web application designed to help organise and find anime that you like. gives information on the anime, stores anime info in profile and offers recommendations based on your preferences.
+Anime web application designed to help organise and find anime that you like. Gives information on the anime, stores anime info in localStorage and offers recommendations based on your preferences.
+
+---
+
+### Website Link
+
+https://main--extraordinary-sable-7e16db.netlify.app/
 
 ---
 
