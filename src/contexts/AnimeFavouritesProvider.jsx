@@ -3,7 +3,7 @@ import { useLocalStorage } from "react-use";
 
 export const AnimeFavouritesContext = createContext([]);
 
-export function AnimeDataProvider(props) {
+export function AnimeFavouritesProvider(props) {
   let [favourites, setFavourites] = useState([]);
 
   let [storedFavourites, setStoredFavourites] = useLocalStorage(
