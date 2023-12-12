@@ -8,7 +8,7 @@ Anime web application designed to help organise and find anime that you like. Gi
 
 ### Website Link
 
-https://main--extraordinary-sable-7e16db.netlify.app/
+- [AnimeHarbour Website](https://main--extraordinary-sable-7e16db.netlify.app/)
 
 ---
 
@@ -25,13 +25,16 @@ https://main--extraordinary-sable-7e16db.netlify.app/
 
 ---
 
-### WireFrame
+### Planning
 
-[WireFrame.pdf](./assets/wireframe-AnimeHarbour.pdf)
+- [WireFrame.pdf](./assets/wireframe-AnimeHarbour.pdf)
+- [Trello Planning](https://trello.com/b/vFfpPujz/animeharbor)
 
-### Public API
 
-* https://docs.api.jikan.moe/
+
+### Public API Docs
+
+* [Jikan API](https://docs.api.jikan.moe/) - Unofficial MyAnimeList API 
 
 ---
 
@@ -42,5 +45,5 @@ https://main--extraordinary-sable-7e16db.netlify.app/
 
 ---
 
-### Licensce
-* Jikan API - https://github.com/jikan-me/jikan-rest/blob/master/LICENSE
+### Licences
+* [Jikan API](https://github.com/jikan-me/jikan-rest/blob/master/LICENSE)
