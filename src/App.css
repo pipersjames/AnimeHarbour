@@ -92,3 +92,69 @@
   height: 24px;
 }
 
+/* AnimeList.css */
+
+.AnimeCards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.AnimeCard {
+  position: relative;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin: 16px;
+  width: 200px;
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.AnimeCard:hover {
+  transform: scale(1.05); /* Add a simple hover effect */
+}
+
+.AnimeCard h5 {
+  font-size: 1.2rem;
+  margin: 8px 0;
+}
+
+.AnimeCard img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.AnimeCard p {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 8px;
+}
+
+.AnimeCard span {
+  margin-right: 4px;
+}
+
+.AnimeCard::before {
+  content: '';
+  display: block;
+}
+
+.AnimeCard .overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 8px;
+  text-align: center;
+  transition: opacity 0.3s;
+  opacity: 0;
+}
+
+.AnimeCard:hover .overlay {
+  opacity: 1; /* Show overlay on hover */
+}
+
