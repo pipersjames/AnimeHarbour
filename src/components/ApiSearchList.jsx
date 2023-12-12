@@ -12,6 +12,12 @@ export function ApiSearchList() {
   const [animeList, setAnimeList] = useState({ pagination: {}, data: [] }); // Use local state
   const [searchData, setSearchData] = useState("");
 
+  const handleEnterSearch = (event) => {
+    if (event.key === 'Enter') {
+      searchForAnime()
+    }
+  }
+
   const searchForAnime = async () => {
     try {
       const response = await fetch(url + "anime?q=" + searchData); // Update the API endpoint for anime
@@ -35,6 +41,7 @@ export function ApiSearchList() {
         name="animeName"
         id="animeName"
         value={searchData}
+        onKeyDown={handleEnterSearch}
         onChange={(event) => setSearchData(event.target.value)}
       />
       <button
