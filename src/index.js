@@ -5,16 +5,16 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ApiProvider } from "./contexts/ApiProvider";
 import { BrowserRouter } from 'react-router-dom';
-import { AnimeDataProvider } from "./contexts/AnimeDataProvider";
+import { AnimeFavouritesProvider } from "./contexts/AnimeFavouritesProvider";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <ApiProvider>      
-        <AnimeDataProvider>
+      <ApiProvider>
+        <AnimeFavouritesProvider>
           <App />
-        </AnimeDataProvider>
+        </AnimeFavouritesProvider>
       </ApiProvider>
     </BrowserRouter>
   </React.StrictMode>
