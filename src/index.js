@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { ApiProvider } from "./contexts/ApiProvider";
 import { BrowserRouter } from 'react-router-dom';
 import { AnimeFavouritesProvider } from "./contexts/AnimeFavouritesProvider";
+import { SearchResultsProvider } from './contexts/SearchResultsProvider';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -13,7 +14,9 @@ root.render(
     <BrowserRouter>
       <ApiProvider>
         <AnimeFavouritesProvider>
-          <App />
+          <SearchResultsProvider>
+            <App />
+          </SearchResultsProvider>
         </AnimeFavouritesProvider>
       </ApiProvider>
     </BrowserRouter>
