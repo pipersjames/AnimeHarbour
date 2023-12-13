@@ -10,6 +10,7 @@ export function FavouriteButton(props) {
   let [favourite, setFavourite] = useState(false);
 
   const toggleFavourite = (event) => {
+    event.stopPropagation()
     setFavourite(!favourite);
     if (!favourite) {
       setFavourites([...favourites, props.id]);

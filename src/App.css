@@ -108,6 +108,7 @@
   width: 200px;
   overflow: hidden;
   transition: transform 0.3s;
+  cursor: pointer;
 }
 
 .AnimeCard:hover {
