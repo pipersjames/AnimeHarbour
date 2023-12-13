@@ -1,26 +1,25 @@
-// // Components
-// // Display title of Search Anime
+// AnimeCards.jsx
+import { useNavigate } from 'react-router-dom';
 
-import React from "react";
+export default function AnimeList(props) {
+  const navigate = useNavigate();
 
-export default function AnimeCardDisplay(props) {
-  const animeListData = props.anime.anime.data;
 
-  if (!animeListData || animeListData.length === 0) {
-    // Handle the case when animeListData is not available or empty
-    return null;
-  }
+  const handleCardClick = (title) => {
+    const formattedTitle = encodeURIComponent(title); // Encode title for URL
+    const searchUrl = `https://www7.gogoanime.me//search.html?keyword=${formattedTitle}`;
+    navigate(searchUrl);
+  };
 
   return (
-    <div>
-      {animeListData.map((animeData) => {
-        const { mal_id, genres, title, images } = animeData;
+    <div className="AnimeCards">
+      {props.data.map((element, index) => {
+        const { images, genres, title } = element;
         const imageUrl = images?.webp?.large_image_url || images?.jpg?.large_image_url;
-
         return (
-          <div key={mal_id}>
-            <img src={imageUrl} alt={title} style={{ maxWidth: "100%" }} />
-            <h2>{title}</h2>
+          <div className="AnimeCard" key={index} onClick={() => handleCardClick(title)}>
+            <h5>{title}</h5>
+            <img src={imageUrl} alt={title + " small image"} />
             <p>
               Genres:{" "}
               {genres.map((genre) => (
@@ -36,3 +35,6 @@ export default function AnimeCardDisplay(props) {
     </div>
   );
 }
+
+
+
