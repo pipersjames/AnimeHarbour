@@ -1,9 +1,11 @@
-// AnimeCards.jsx
-import { useNavigate } from 'react-router-dom';
+// Components
+// Display title of Search Anime
+
+import { FavouriteButton } from "./FavouriteButton";
+import { useNavigate } from "react-router-dom";
 
 export default function AnimeList(props) {
   const navigate = useNavigate();
-
 
   const handleCardClick = (title) => {
     const formattedTitle = encodeURIComponent(title); // Encode title for URL
@@ -14,12 +16,17 @@ export default function AnimeList(props) {
   return (
     <div className="AnimeCards">
       {props.data.map((element, index) => {
-        const { images, genres, title } = element;
-        const imageUrl = images?.webp?.large_image_url || images?.jpg?.large_image_url;
+        const { images, genres } = element;
+        const imageUrl =
+          images?.webp?.large_image_url || images?.jpg?.large_image_url;
         return (
-          <div className="AnimeCard" key={index} onClick={() => handleCardClick(title)}>
-            <h5>{title}</h5>
-            <img src={imageUrl} alt={title + " small image"} />
+          <div
+            className="AnimeCard"
+            key={index}
+            onClick={() => handleCardClick(element.title)}
+          >
+            <h5>{element.title}</h5>
+            <img src={imageUrl} alt={element.title + " small image"} />
             <p>
               Genres:{" "}
               {genres.map((genre) => (
@@ -29,6 +36,7 @@ export default function AnimeList(props) {
                 </span>
               ))}
             </p>
+            <FavouriteButton id={element.mal_id} />
           </div>
         );
       })}
@@ -36,5 +44,4 @@ export default function AnimeList(props) {
   );
 }
 
-
-
+  

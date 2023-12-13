@@ -2,7 +2,13 @@
 
 ### Description
 
-Anime web application designed to help organise and find anime that you like. gives information on the anime, stores anime info in profile and offers recommendations based on your preferences.
+Anime web application designed to help organise and find anime that you like. Gives information on the anime, stores anime info in localStorage and offers recommendations based on your preferences.
+
+---
+
+### Website Link
+
+- [AnimeHarbour Website](https://main--extraordinary-sable-7e16db.netlify.app/)
 
 ---
 
@@ -19,13 +25,16 @@ Anime web application designed to help organise and find anime that you like. gi
 
 ---
 
-### WireFrame
+### Planning
 
-[WireFrame.pdf](./assets/wireframe-AnimeHarbour.pdf)
+- [WireFrame.pdf](./assets/wireframe-AnimeHarbour.pdf)
+- [Trello Planning](https://trello.com/b/vFfpPujz/animeharbor)
 
-### Public API
 
-* https://docs.api.jikan.moe/
+
+### Public API Docs
+
+* [Jikan API](https://docs.api.jikan.moe/) - Unofficial MyAnimeList API 
 
 ---
 
@@ -36,5 +45,5 @@ Anime web application designed to help organise and find anime that you like. gi
 
 ---
 
-### Licensce
-* Jikan API - https://github.com/jikan-me/jikan-rest/blob/master/LICENSE
+### Licences
+* [Jikan API](https://github.com/jikan-me/jikan-rest/blob/master/LICENSE)
