@@ -1,19 +1,19 @@
 // Components
 // Display title of Search Anime
 
+import { FavouriteButton } from "./FavouriteButton";
+
 export default function AnimeList(props) {
   return (
     <div className="AnimeCards">
       {props.data.map((element, index) => {
         const { images, genres } = element;
-        const imageUrl = images?.webp?.large_image_url || images?.jpg?.large_image_url;
+        const imageUrl =
+          images?.webp?.large_image_url || images?.jpg?.large_image_url;
         return (
           <div className="AnimeCard" key={index}>
             <h5>{element.title}</h5>
-            <img
-              src={imageUrl}
-              alt={element.title + " small image"}
-            />
+            <img src={imageUrl} alt={element.title + " small image"} />
             <p>
               Genres:{" "}
               {genres.map((genre) => (
@@ -23,7 +23,8 @@ export default function AnimeList(props) {
                 </span>
               ))}
             </p>
-          </div>  
+            <FavouriteButton id={element.mal_id} />
+          </div>
         );
       })}
     </div>
