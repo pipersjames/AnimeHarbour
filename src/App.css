@@ -155,7 +155,20 @@
   opacity: 0;
 }
 
-.AnimeCard:hover .overlay {
-  opacity: 1; /* Show overlay on hover */
+
+
+
+
+
+.AnimeScreens {
+  display: flex;
+  height: 400px;
 }
 
+.AnimeScreen {
+  border-radius: .5rem;
+  box-shadow: 0px, 0px, 7px, #666;
+  border: 2px solid black;
+  width: 100dvw;
+  height: 100%;
+}
