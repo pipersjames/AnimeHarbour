@@ -7,6 +7,7 @@ import { ApiProvider } from "./contexts/ApiProvider";
 import { BrowserRouter } from 'react-router-dom';
 import { AnimeFavouritesProvider } from "./contexts/AnimeFavouritesProvider";
 import { SearchResultsProvider } from './contexts/SearchResultsProvider';
+import { FavouritesDataProvider } from "./contexts/FavouritesDataProvider";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -15,7 +16,9 @@ root.render(
       <ApiProvider>
         <AnimeFavouritesProvider>
           <SearchResultsProvider>
-            <App />
+            <FavouritesDataProvider>
+              <App />
+            </FavouritesDataProvider>
           </SearchResultsProvider>
         </AnimeFavouritesProvider>
       </ApiProvider>

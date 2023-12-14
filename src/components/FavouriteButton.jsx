@@ -3,14 +3,16 @@
 import { useContext, useEffect, useState } from "react";
 import { AnimeFavouritesContext } from "../contexts/AnimeFavouritesProvider";
 import { SearchResultsContext } from "../contexts/SearchResultsProvider";
+import { FavouritesDataContext } from "../contexts/FavouritesDataProvider";
 
 export function FavouriteButton(props) {
   let { favourites, setFavourites } = useContext(AnimeFavouritesContext);
   const { animeList } = useContext(SearchResultsContext);
+  const { favouritesData } = useContext(FavouritesDataContext);
   let [favourite, setFavourite] = useState(false);
 
   const toggleFavourite = (event) => {
-    event.stopPropagation()
+    event.stopPropagation();
     setFavourite(!favourite);
     if (!favourite) {
       setFavourites([...favourites, props.id]);
@@ -40,7 +42,7 @@ export function FavouriteButton(props) {
   useEffect(() => {
     favouriteCheck();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [animeList]);
+  }, [animeList, favouritesData]);
 
   return (
     <button className="FavouriteButton" onClick={toggleFavourite} type="button">
