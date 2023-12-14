@@ -1,10 +1,9 @@
-import { Outlet, Route, Routes } from "react-router";
+import { Route, Routes } from "react-router";
 import "./App.css";
 import LandingPage from "./components/LandingPage";
 import Navbar from "./components/Navbar";
 import Favourites from "./components/Favourites";
-import {ApiSearchList} from './components/ApiSearchList';
-// import ApiSearchList from "./components/ApiSearchList"
+import { ApiSearchPage } from "./components/ApiSearchPage";
 
 function App() {
   return (
@@ -13,8 +12,7 @@ function App() {
         <Routes>
           <Route path="/" element={<LandingPage/>}/>
           <Route path="/favourites" element={<Favourites/>}/>
-          <Route path="/search" element={<Outlet/>}>
-            <Route index element={<ApiSearchList/>}/>
+          <Route path="/search" element={<ApiSearchPage/>}>
           </Route>
             
 

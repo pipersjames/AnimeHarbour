@@ -7,8 +7,8 @@
 }
 
 
-/* Api Search List */
-.ApiSearchListContainer {
+/* Api Search */
+.ApiSearchContainer {
   margin: 20px; 
   padding: 20px; 
   border: 1px solid #ddd; 
@@ -16,13 +16,13 @@
   flex-wrap: wrap;
 }
 
-.ApiSearchListHeading{
+.ApiSearchHeading{
   font-size: 2 rem;
   flex-wrap: wrap;
   margin: 15px;
 }
 
-.ApiSearchListButton:hover{
+.ApiSearchButton:hover{
   background-color: #0056b3;
 }
 

@@ -5,13 +5,14 @@
 
 import React, { useContext, useState } from "react";
 import { ApiContext } from "../contexts/ApiProvider";
-import SearchResults from "./SearchResults";
 import { SearchResultsContext } from "../contexts/SearchResultsProvider";
+import { useNavigate } from "react-router-dom";
 
-export function ApiSearchList() {
+export function ApiSearch() {
   const { url } = useContext(ApiContext);
   const {animeList, setAnimeList} = useContext(SearchResultsContext) // Use local state
   const [searchData, setSearchData] = useState("");
+  const navigate = useNavigate()
 
 
   // WILL NEED TO CHANGE IN FUTURE DEPENDING ON SEARCH TYPE
@@ -34,6 +35,8 @@ export function ApiSearchList() {
       const data = await response.json();
       setAnimeList(data); // Update the context state
 
+      
+      navigate("/search")
       // WILL NEED TO ADJUST HARD CODE OF THE SEARCH WORD
       const newUrl = `search/${apiEndpoint}${searchData}`;
       window.history.replaceState({}, "", newUrl);
@@ -43,8 +46,8 @@ export function ApiSearchList() {
   };
 
   return (
-    <div className="ApiSearchListContainer">
-      <h5 className="ApiSearchListHeading">Enter an Anime name:</h5>
+    <div className="ApiSearchContainer">
+      <h5 className="ApiSearchHeading">Enter an Anime name:</h5>
       <input
         type="text"
         name="animeName"
@@ -54,13 +57,12 @@ export function ApiSearchList() {
         onChange={(event) => setSearchData(event.target.value)}
       />
       <button
-        className="ApiSearchListButton"
+        className="ApiSearchButton"
         onClick={searchForAnime}
         type="submit"
       >
         Search
       </button>
-      <SearchResults/>
     </div>
     )
 }

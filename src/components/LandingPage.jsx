@@ -1,6 +1,14 @@
+import { ApiSearch } from "./ApiSearch";
+import Jumbotron from "./Jumbotron";
+
 export default function LandingPage () {
     return (
-        <h1>Insert Jumbotron Here</h1>
+        <>
+            <ApiSearch/>
+            <Jumbotron/>
+        </>
+        
+        
         
     )
 }
