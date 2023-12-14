@@ -20,7 +20,11 @@ export default function AnimeList(props) {
         return (
           <div className="AnimeCard" key={index}>
             <h5 onClick={() => handleCardClick(title)}>{title}</h5>
-            <img src={imageUrl} alt={title + " small image"} onClick={() => handleCardClick(title)}/>
+            <img
+              src={imageUrl}
+              alt={title + " small image"}
+              onClick={() => handleCardClick(title)}
+            />
             <p>
               Genres:{" "}
               {genres.map((genre) => (
