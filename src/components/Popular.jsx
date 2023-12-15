@@ -2,15 +2,16 @@ import { useContext, useEffect } from "react";
 import { SearchResultsContext } from "../contexts/SearchResultsProvider";
 import { ApiContext } from "../contexts/ApiProvider";
 import { useLocation } from "react-router-dom";
+import AnimeList from "./AnimeCards";
 
-export default function Jumbotron() {
+export default function Popular() {
 
     const { url } = useContext(ApiContext);
     const {animeList, setAnimeList} = useContext(SearchResultsContext)
     const location = useLocation();
     
-    //let apiEndpoint = "top/anime?sfw"
-    let apiEndpoint = "seasons/now?sfw"
+    let apiEndpoint = "top/anime?sfw"
+
 
   const searchForApiRecommendations = async () => {
     try {
@@ -39,30 +40,9 @@ export default function Jumbotron() {
   console.log(animeList)
 
     return (
-        <div className="Jumbotron">
-            {animeList.data && 
-            animeList.data.length > 0 && 
-            <div className="AnimeScreens">
-                {animeList.data.map((element, index) => {
-                    const { trailer, title, images } = element;
-                    const imageUrl =
-                    trailer.images.maximum_image_url || images.jpg.large_image_url
-
-                    return (
-                    <div className="AnimeScreen" key={index}>
-                        <h5>{title}</h5>
-                        <img
-                        src={imageUrl}
-                        alt={title + " small image"}
-                        />
-                    </div>
-                    );
-                })}
-                </div>}
+        <div>
+            {animeList.data.length > 0 && <AnimeList data={animeList.data} />}
         </div>
+        
     )
 }
-
-
-
-
