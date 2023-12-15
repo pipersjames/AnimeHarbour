@@ -2,6 +2,8 @@ import { useContext, useEffect } from "react";
 import { SearchResultsContext } from "../contexts/SearchResultsProvider";
 import { ApiContext } from "../contexts/ApiProvider";
 import { useLocation } from "react-router-dom";
+import  Carousel  from 'react-bootstrap/Carousel';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Jumbotron() {
 
@@ -42,23 +44,24 @@ export default function Jumbotron() {
         <div className="Jumbotron">
             {animeList.data && 
             animeList.data.length > 0 && 
-            <div className="AnimeScreens">
+            <Carousel className="AnimeScreens" >
                 {animeList.data.map((element, index) => {
                     const { trailer, title, images } = element;
                     const imageUrl =
                     trailer.images.maximum_image_url || images.jpg.large_image_url
 
                     return (
-                    <div className="AnimeScreen" key={index}>
+                    <Carousel.Item className="AnimeScreen" key={index}>
                         <h5>{title}</h5>
                         <img
                         src={imageUrl}
                         alt={title + " small image"}
                         />
-                    </div>
+                      
+                    </Carousel.Item>
                     );
                 })}
-                </div>}
+                </Carousel>}
         </div>
     )
 }
