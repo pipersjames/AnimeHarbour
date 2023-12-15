@@ -40,9 +40,15 @@ export default function Popular() {
   console.log(animeList)
 
     return (
+      <>
+        <h1>Popular</h1>
         <div>
             {animeList.data.length > 0 && <AnimeList data={animeList.data} />}
         </div>
+
+        </>
+      
+      
         
     )
 }

@@ -46,7 +46,9 @@ export function FavouriteButton(props) {
 
   return (
     <button className="FavouriteButton" onClick={toggleFavourite} type="button">
-      {favourite ? "★" : "☆"}
+      {favourite ? "Like ★" : " Like ☆"}
     </button>
   );
 }
+
+

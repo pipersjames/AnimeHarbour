@@ -42,8 +42,11 @@ export default function AnimeList(props) {
                 ))}
             </p>
             <p className="TruncatedSynopsis">{synopsis}</p>
+            <span className="ButtonContainer">
             <FavouriteButton id={mal_id} />
+            </span>
           </div>
+
         );
       })}
     </div>
