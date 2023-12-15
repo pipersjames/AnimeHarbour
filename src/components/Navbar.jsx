@@ -15,7 +15,7 @@ export default function Navbar () {
                         
                     </li>
                     <li>
-                        <NavLink to="/trending">Trending</NavLink>
+                        <NavLink to="/popular">Popular</NavLink>
                     </li>
                     <li>
                         <NavLink to="/recent-updates">Recent Updates</NavLink>
