@@ -30,7 +30,7 @@ export function ApiSearch() {
         case "type":
           apiEndpoint = "anime?sfw&type="; 
           break;
-        case "min_score":
+        case "score":
           apiEndpoint = "anime?sfw&score="; 
           break;  
         case "genre":
