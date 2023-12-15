@@ -34,7 +34,17 @@ export function ApiSearch() {
           apiEndpoint = "anime?type&filter&rating&page&limit="; // Update with your API endpoint for top series
           break;
         case "genre":
-          apiEndpoint = "anime?filter="; // Update with your API endpoint for genre filter
+          const idPull = await fetch(url + "genres/anime")
+          const idData = await idPull.json()
+          let idSearch = () => {
+            for (let i = 0; i < idData.data.length; i++) {
+              if (idData.data[i].name.toLowerCase().includes(searchData)) {
+                return idData.data[i].mal_id
+              }
+          }
+          
+          }  
+          apiEndpoint = `anime?genres=${idSearch()}` // Update with your API endpoint for genre filter
           break;
         case "season":
           apiEndpoint = "anime?year&season?sfw&filter="; // Update with your API endpoint for season filter
