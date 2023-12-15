@@ -84,7 +84,7 @@ export function ApiSearch() {
       >
         <option value="anime">Anime Name</option>
         <option value="type">Type e.g. movie,tv</option>
-        <option value="score">Min Score e.g. 1-10</option>
+        <option value="score">Score e.g. 1-10</option>
         <option value="genre">By Genre e.g. comedy, romance</option>
       </select>
       <button
