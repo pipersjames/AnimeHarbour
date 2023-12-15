@@ -18,7 +18,7 @@ export default function Navbar () {
                         <NavLink to="/popular">Popular</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/recent-updates">Recent Updates</NavLink>
+                        <NavLink to="/upcoming">Upcoming Anime</NavLink>
                     </li>
                     
                     <li>
