@@ -31,19 +31,17 @@ export default function AnimeList(props) {
               onClick={() => handleCardClick(title)}
             />
             <p>
-              Genres:{" "}
-              {genres && 
-              genres.length > 0 && 
-              genres.map((genre) => (
-                <span key={genre.mal_id}>
-                  {genre.name}
-                  {genres.indexOf(genre) < genres.length - 1 ? ", " : ""}
-                </span>
-              ))}
+              {genres && genres.length > 0 && <span>Genres:</span>}{" "}
+              {genres &&
+                genres.length > 0 &&
+                genres.map((genre) => (
+                  <span key={genre.mal_id}>
+                    {genre.name}
+                    {genres.indexOf(genre) < genres.length - 1 ? ", " : ""}
+                  </span>
+                ))}
             </p>
-            <p className="TruncatedSynopsis">
-              {synopsis}
-            </p>
+            <p className="TruncatedSynopsis">{synopsis}</p>
             <FavouriteButton id={mal_id} />
           </div>
         );
