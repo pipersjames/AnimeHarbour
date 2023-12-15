@@ -27,20 +27,26 @@ export function ApiSearch() {
       let apiEndpoint = "";
       // Added logic for different filters
       switch (selectedFilter) {
-        case "upcoming":
-          apiEndpoint = "anime?filter&page="; // Update with your API endpoint for new series
+        case "type":
+          apiEndpoint = "anime?sfw&type="; 
           break;
-        case "top":
-          apiEndpoint = "anime?type&filter&rating&page&limit="; // Update with your API endpoint for top series
-          break;
+        case "score":
+          apiEndpoint = "anime?sfw&score="; 
+          break;  
         case "genre":
-          apiEndpoint = "anime?filter="; // Update with your API endpoint for genre filter
-          break;
-        case "season":
-          apiEndpoint = "anime?year&season?sfw&filter="; // Update with your API endpoint for season filter
+          const idPull = await fetch(url + "genres/anime")
+          const idData = await idPull.json()
+          let idSearch = () => {
+            for (let i = 0; i < idData.data.length; i++) {
+              if (idData.data[i].name.toLowerCase().includes(searchData)) {
+                return idData.data[i].mal_id
+              }
+            }
+          }  
+          apiEndpoint = `anime?sfw&genres=${idSearch()}` 
           break;
         default:
-          apiEndpoint = "anime?q="; // Default to search by anime name
+          apiEndpoint = "anime?sfw&q="; 
       }
 
       const response = await fetch(url + apiEndpoint + searchData);
@@ -77,10 +83,9 @@ export function ApiSearch() {
         onChange={(event) => setSelectedFilter(event.target.value)}
       >
         <option value="anime">Anime Name</option>
-        <option value="upcoming">Upcoming Series</option>
-        <option value="top">Top Series</option>
-        <option value="genre">By Genre</option>
-        <option value="season">By Season</option>
+        <option value="type">Type e.g. movie,tv</option>
+        <option value="score">Min Score e.g. 1-10</option>
+        <option value="genre">By Genre e.g. comedy, romance</option>
       </select>
       <button
         className="ApiSearchButton"
