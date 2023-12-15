@@ -102,13 +102,15 @@
 
 .AnimeCard {
   position: relative;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  border: 1px solid #ccbcbc;
+  border-radius: 8px;
   margin: 16px;
+  padding: 8px;
   width: 200px;
   overflow: hidden;
   transition: transform 0.3s;
   cursor: pointer;
+  background-color: #e6e6d8;
 }
 
 .AnimeCard:hover {
@@ -118,19 +120,21 @@
 .AnimeCard h5 {
   font-size: 1.2rem;
   margin: 8px 0;
+  height: 10%;
 }
 
 .AnimeCard img {
   width: 100%;
-  height: auto;
+  height: 60%;
   display: block;
   object-fit: cover;
 }
 
 .AnimeCard p {
   font-size: 0.9rem;
-  color: #555;
+  color: #732727;
   margin-top: 8px;
+  height: 10%
 }
 
 .AnimeCard span {
@@ -171,4 +175,8 @@
 .AnimeScreen {
   border-radius: .5rem;
   justify-content: center;
+}
+
+.FavouriteButton {
+  border-radius: 16px;
 }
