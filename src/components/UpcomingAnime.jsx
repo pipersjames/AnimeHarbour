@@ -40,9 +40,13 @@ export default function UpcomingAnime() {
   console.log(animeList)
 
     return (
+      <>
+        <h1>Upcoming Anime</h1>
         <div>
             {animeList.data.length > 0 && <AnimeList data={animeList.data} />}
         </div>
+      </>
+        
         
     )
 }
