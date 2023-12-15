@@ -10,34 +10,50 @@ import { useNavigate } from "react-router-dom";
 
 export function ApiSearch() {
   const { url } = useContext(ApiContext);
-  const {animeList, setAnimeList} = useContext(SearchResultsContext) // Use local state
+  // eslint-disable-next-line no-unused-vars
+  const { animeList, setAnimeList } = useContext(SearchResultsContext);
   const [searchData, setSearchData] = useState("");
-  const navigate = useNavigate()
-
-
-  // WILL NEED TO CHANGE IN FUTURE DEPENDING ON SEARCH TYPE
-  let apiEndpoint = "anime?q="
+  const [selectedFilter, setSelectedFilter] = useState("anime"); // Default filter
+  const navigate = useNavigate();
 
   const handleEnterSearch = (event) => {
-    if (event.key === 'Enter') {
-      searchForAnime()
+    if (event.key === "Enter") {
+      searchForAnime();
     }
-  }
+  };
 
   const searchForAnime = async () => {
     try {
-      const response = await fetch( url + apiEndpoint + searchData); // Update the API endpoint for anime
-      console.log(animeList);
+      let apiEndpoint = "";
+      // Added logic for different filters
+      switch (selectedFilter) {
+        case "upcoming":
+          apiEndpoint = "anime?filter&page="; // Update with your API endpoint for new series
+          break;
+        case "top":
+          apiEndpoint = "anime?type&filter&rating&page&limit="; // Update with your API endpoint for top series
+          break;
+        case "genre":
+          apiEndpoint = "anime?filter="; // Update with your API endpoint for genre filter
+          break;
+        case "season":
+          apiEndpoint = "anime?year&season?sfw&filter="; // Update with your API endpoint for season filter
+          break;
+        default:
+          apiEndpoint = "anime?q="; // Default to search by anime name
+      }
+
+      const response = await fetch(url + apiEndpoint + searchData);
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
 
       const data = await response.json();
-      setAnimeList(data); // Update the context state
-
+      setAnimeList(data); // Updating the context data
       
-      navigate("/search")
-      // WILL NEED TO ADJUST HARD CODE OF THE SEARCH WORD
+      navigate("/search");
+
+      // Updating the URL based on the selected filter and search term
       const newUrl = `search/${apiEndpoint}${searchData}`;
       window.history.replaceState({}, "", newUrl);
     } catch (error) {
@@ -56,6 +72,16 @@ export function ApiSearch() {
         onKeyDown={handleEnterSearch}
         onChange={(event) => setSearchData(event.target.value)}
       />
+      <select
+        value={selectedFilter}
+        onChange={(event) => setSelectedFilter(event.target.value)}
+      >
+        <option value="anime">Anime Name</option>
+        <option value="upcoming">Upcoming Series</option>
+        <option value="top">Top Series</option>
+        <option value="genre">By Genre</option>
+        <option value="season">By Season</option>
+      </select>
       <button
         className="ApiSearchButton"
         onClick={searchForAnime}
@@ -64,5 +90,5 @@ export function ApiSearch() {
         Search
       </button>
     </div>
-    )
+  );
 }
