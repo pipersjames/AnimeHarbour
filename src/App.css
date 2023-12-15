@@ -108,7 +108,6 @@
   width: 200px;
   overflow: hidden;
   transition: transform 0.3s;
-  cursor: pointer;
 }
 
 .AnimeCard:hover {
@@ -118,6 +117,7 @@
 .AnimeCard h5 {
   font-size: 1.2rem;
   margin: 8px 0;
+  cursor: pointer;
 }
 
 .AnimeCard img {
@@ -125,6 +125,7 @@
   height: auto;
   display: block;
   object-fit: cover;
+  cursor: pointer;
 }
 
 .AnimeCard p {
@@ -132,6 +133,21 @@
   color: #555;
   margin-top: 8px;
 }
+
+.AnimeCard .TruncatedSynopsis {
+display: -webkit-box;
+-webkit-box-orient: vertical;
+overflow: hidden;
+height: 4em; 
+-webkit-line-clamp: 3;
+}
+
+
+/* .AnimeCard .TruncatedSynopsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+} */
 
 .AnimeCard span {
   margin-right: 4px;
@@ -155,7 +171,11 @@
   opacity: 0;
 }
 
+.FavouriteButton {
+  cursor: pointer;
+}
 
+/* Jumbotron Display cards */
 .AnimeScreens {
   display: flex;
   flex-direction: column;

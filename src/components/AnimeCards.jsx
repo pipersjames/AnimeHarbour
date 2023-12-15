@@ -19,7 +19,7 @@ export default function AnimeList(props) {
   return (
     <div className="AnimeCards">
       {props.data.map((element, index) => {
-        const { images, genres, title, mal_id } = element;
+        const { images, genres, title, mal_id, synopsis } = element;
         const imageUrl =
           images?.webp?.large_image_url || images?.jpg?.large_image_url;
         return (
@@ -40,6 +40,9 @@ export default function AnimeList(props) {
                   {genres.indexOf(genre) < genres.length - 1 ? ", " : ""}
                 </span>
               ))}
+            </p>
+            <p className="TruncatedSynopsis">
+              {synopsis}
             </p>
             <FavouriteButton id={mal_id} />
           </div>
